@@ -36,9 +36,6 @@ module.exports = {
       has_aircon: {
         type: Sequelize.BOOLEAN,
       },
-      has_heating: {
-        type: Sequelize.BOOLEAN,
-      },
       has_internet: {
         type: Sequelize.BOOLEAN,
       },

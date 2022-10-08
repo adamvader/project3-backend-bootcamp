@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       has_tv: DataTypes.BOOLEAN,
       has_kitchen: DataTypes.BOOLEAN,
       has_aircon: DataTypes.BOOLEAN,
-      has_heating: DataTypes.BOOLEAN,
       has_internet: DataTypes.BOOLEAN,
       price: DataTypes.INTEGER,
       owner_id: DataTypes.INTEGER,
