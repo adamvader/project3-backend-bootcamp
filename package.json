@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "eslint": "^8.16.0",
+    "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.1"
   },
   "description": "Run `npm i` to install NPM packages, then `npm start` to start the Express server.",
