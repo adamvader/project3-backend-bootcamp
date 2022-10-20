@@ -1,45 +1,17 @@
 const BaseController = require("./baseController");
 
 class ReservationsController extends BaseController {
-  constructor(model, categoryModel, commentModel) {
+  constructor(model) {
     super(model);
-    // this.categoryModel = categoryModel;
-    // this.commentModel = commentModel;
   }
 
   /** if a method in this extended class AND the base class has the same name, the one in the extended class will run over the base method */
-  // Create reservation
-  // async insertOne(req, res) {
-  //   const { date, location, notes, selectedCategoryIds } = req.body;
-  //   try {
-  //     // Create new sighting
-  //     const newSighting = await this.model.create({
-  //       date: new Date(date),
-  //       location: location,
-  //       notes: notes,
-  //     });
-  //     // Retrieve selected categories
-  //     const selectedCategories = await this.categoryModel.findAll({
-  //       where: {
-  //         id: selectedCategoryIds,
-  //       },
-  //     });
-  //     // Associated new sighting with selected categories
-  //     await newSighting.setCategories(selectedCategories);
-  //     // Respond with new sighting
-  //     return res.json(newSighting);
-  //   } catch (err) {
-  //     return res.status(400).json({ error: true, msg: err });
-  //   }
-  // }
-
+  
   // Retrieve specific sighting
   async getOne(req, res) {
     const { reservationId } = req.params;
     try {
-      const reservation = await this.model.findByPk(reservationId, {
-        // include: this.categoryModel,
-      });
+      const reservation = await this.model.findByPk(reservationId);
       return res.json(reservation);
     } catch (err) {
       return res.status(400).json({ error: true, msg: err });

@@ -21,16 +21,13 @@ const reservationsController = new ReservationsController(
   property,
   user
 );
-const propertiesController = new PropertiesController(property, user);
+const propertiesController = new PropertiesController(property);
 
 // initializing Routers
 const reservationRouter = new ReservationsRouter(
   reservationsController
 ).routes();
-const propertiesRouter = new PropertiesRouter(
-  propertiesController,
-  auth
-).routes();
+const propertyRouter = new PropertiesRouter(propertiesController).routes();
 
 const PORT = process.env.PORT;
 const app = express();
@@ -41,7 +38,7 @@ app.use(express.json());
 
 // USING the routers
 app.use("/reservations", reservationRouter);
-app.use("/properties", propertiesRouter);
+app.use("/properties", propertyRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");
