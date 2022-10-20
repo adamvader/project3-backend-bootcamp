@@ -1,3 +1,5 @@
+//migrations create the table in the database
+
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

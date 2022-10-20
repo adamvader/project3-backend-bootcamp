@@ -3,8 +3,6 @@ const BaseController = require("./baseController");
 class ReservationsController extends BaseController {
   constructor(model) {
     super(model);
-    // this.categoryModel = categoryModel;
-    // this.commentModel = commentModel;
   }
 
   /** if a method in this extended class AND the base class has the same name, the one in the extended class will run over the base method */

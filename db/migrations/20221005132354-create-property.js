@@ -1,3 +1,5 @@
+//models create templates for the tables
+
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
