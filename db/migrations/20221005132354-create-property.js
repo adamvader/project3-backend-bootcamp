@@ -8,8 +8,11 @@ module.exports = {
       id: {
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
+      },
+      home_name: {
+        primaryKey: true,
+        type: Sequelize.STRING,
       },
       home_type: {
         type: Sequelize.STRING,

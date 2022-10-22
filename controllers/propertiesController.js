@@ -10,27 +10,38 @@ class PropertiesController extends BaseController {
   /** if a method in this extended class AND the base class has the same name, the one in the extended class will run over the base method */
   async insertOne(req, res) {
     const {
-      homeType,
-      totalOccupancy,
-      totalBedrooms,
-      totalBathrooms,
+      home_name,
+      home_type,
+      total_occupancy,
+      total_bedrooms,
+      total_bathrooms,
       summary,
       address,
+      has_tv,
+      has_kitchen,
+      has_aircon,
+      has_internet,
       price,
+      owner_id,
     } = req.body;
     try {
       // TODO: Get seller email from auth, query Users table for seller ID
 
       // Create new listing
       const newListing = await this.model.create({
-        homeType: homeType,
-        totalOccupancy: totalOccupancy,
-        totalBedrooms: totalBedrooms,
-        totalBathrooms: totalBathrooms,
+        home_name: home_name,
+        home_type: home_type,
+        total_occupancy: total_occupancy,
+        total_bedrooms: total_bedrooms,
+        total_bathrooms: total_bathrooms,
         summary: summary,
         address: address,
+        has_tv: has_tv,
+        has_kitchen: has_kitchen,
+        has_aircon: has_aircon,
+        has_internet: has_internet,
         price: price,
-        userId: 1, // TODO: Replace with seller ID of authenticated seller
+        owner_id: 1, // TODO: Replace with seller ID of authenticated seller
       });
 
       // Respond with new listing
@@ -42,9 +53,9 @@ class PropertiesController extends BaseController {
 
   // Retrieve specific sighting
   async getOne(req, res) {
-    const { propertyId } = req.params;
+    const { propertyName } = req.params;
     try {
-      const property = await this.model.findByPk(propertyId, {
+      const property = await this.model.findByPk(propertyName, {
         // include: this.categoryModel,
       });
       return res.json(property);
