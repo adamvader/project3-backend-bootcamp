@@ -7,6 +7,7 @@ module.exports = {
       "properties",
       [
         {
+          home_name: "Big landed and spacious bungalow",
           home_type: "Landed",
           total_occupancy: 8,
           total_bedrooms: 4,
@@ -24,6 +25,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          home_name: "Small studio",
           home_type: "studio",
           total_occupancy: 2,
           total_bedrooms: 1,
@@ -40,6 +42,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          home_name: "Convenient HDB",
           home_type: "HDB",
           total_occupancy: 6,
           total_bedrooms: 3,
