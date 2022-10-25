@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   property.init(
     {
       home_name: DataTypes.STRING,
+      image_url: DataTypes.STRING,
       home_type: DataTypes.STRING,
       total_occupancy: DataTypes.INTEGER,
       total_bedrooms: DataTypes.INTEGER,

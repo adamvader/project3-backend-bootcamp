@@ -11,6 +11,7 @@ class PropertiesController extends BaseController {
   async insertOne(req, res) {
     const {
       home_name,
+      image_url,
       home_type,
       total_occupancy,
       total_bedrooms,
@@ -30,6 +31,7 @@ class PropertiesController extends BaseController {
       // Create new listing
       const newListing = await this.model.create({
         home_name: home_name,
+        image_url: image_url,
         home_type: home_type,
         total_occupancy: total_occupancy,
         total_bedrooms: total_bedrooms,
@@ -41,7 +43,7 @@ class PropertiesController extends BaseController {
         has_aircon: has_aircon,
         has_internet: has_internet,
         price: price,
-        owner_id: 1, // TODO: Replace with seller ID of authenticated seller
+        owner_id: owner_id, 
       });
 
       // Respond with new listing
@@ -63,36 +65,6 @@ class PropertiesController extends BaseController {
       return res.status(400).json({ error: true, msg: err });
     }
   }
-
-  // Retrieve all comments for specific sighting
-  // async getComments(req, res) {
-  //   const { sightingId } = req.params;
-  //   try {
-  //     const comments = await this.commentModel.findAll({
-  //       where: {
-  //         sightingId: sightingId,
-  //       },
-  //     });
-  //     return res.json(comments);
-  //   } catch (err) {
-  //     return res.status(400).json({ error: true, msg: err });
-  //   }
-  // }
-
-  // Create comment for specific sighting
-  // async insertOneComment(req, res) {
-  //   const { sightingId } = req.params;
-  //   const { content } = req.body;
-  //   try {
-  //     const newComment = await this.commentModel.create({
-  //       content: content,
-  //       sightingId: sightingId,
-  //     });
-  //     return res.json(newComment);
-  //   } catch (err) {
-  //     return res.status(400).json({ error: true, msg: err });
-  //   }
-  // }
 }
 
 module.exports = PropertiesController;

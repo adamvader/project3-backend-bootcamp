@@ -14,6 +14,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.STRING,
       },
+      image_url: {
+        type: Sequelize.STRING,
+      },
       home_type: {
         type: Sequelize.STRING,
       },
