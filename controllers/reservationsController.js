@@ -12,7 +12,9 @@ class ReservationsController extends BaseController {
   async getAll(req, res) {
     try {
       const reservations = await this.model.findAll({
-        include: [{ model: this.userModel, as: "customer" }],
+        include: [
+          { model: this.userModel, as: "customer", attributes: ["name"] },
+        ],
       });
       return res.json(reservations);
     } catch (err) {
