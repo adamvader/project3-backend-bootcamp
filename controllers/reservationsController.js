@@ -17,7 +17,7 @@ class ReservationsController extends BaseController {
           {
             model: this.propertyModel,
             as: "properties",
-            attributes: ["home_name"],
+            attributes: ["home_type"],
           },
         ],
       });
