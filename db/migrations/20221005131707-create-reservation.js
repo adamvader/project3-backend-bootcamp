@@ -18,6 +18,10 @@ module.exports = {
       },
       properties_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "property",
+          key: "id",
+        },
       },
       start_date: {
         type: Sequelize.DATEONLY,

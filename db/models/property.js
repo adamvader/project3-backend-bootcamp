@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.user, { as: "owner", foreignKey: "owner_id" });
+      this.hasMany(models.reservation, {
+        as: "properties",
+        foreignKey: "properties_id",
+      });
     }
   }
   property.init(

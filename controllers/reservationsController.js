@@ -14,6 +14,11 @@ class ReservationsController extends BaseController {
       const reservations = await this.model.findAll({
         include: [
           { model: this.userModel, as: "customer", attributes: ["name"] },
+          {
+            model: this.propertyModel,
+            as: "properties",
+            attributes: ["home_name"],
+          },
         ],
       });
       return res.json(reservations);
