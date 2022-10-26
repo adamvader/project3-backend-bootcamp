@@ -1,13 +1,33 @@
 const BaseController = require("./baseController");
 
 class ReservationsController extends BaseController {
-  constructor(model) {
+  constructor(model, userModel, propertyModel) {
     super(model);
+    this.userModel = userModel;
+    this.propertyModel = propertyModel;
   }
 
   /** if a method in this extended class AND the base class has the same name, the one in the extended class will run over the base method */
-  
-  // Retrieve specific sighting
+  // Retrieve all reservations
+  async getAll(req, res) {
+    try {
+      const reservations = await this.model.findAll({
+        include: [
+          { model: this.userModel, as: "customer", attributes: ["name"] },
+          {
+            model: this.propertyModel,
+            as: "properties",
+            attributes: ["home_type"],
+          },
+        ],
+      });
+      return res.json(reservations);
+    } catch (err) {
+      return res.status(400).json({ error: true, msg: err });
+    }
+  }
+
+  // Retrieve specific reversation
   async getOne(req, res) {
     const { reservationId } = req.params;
     try {
