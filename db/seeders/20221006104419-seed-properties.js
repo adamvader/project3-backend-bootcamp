@@ -8,6 +8,8 @@ module.exports = {
       [
         {
           home_name: "Big landed and spacious bungalow",
+          image_url:
+            "https://firebasestorage.googleapis.com/v0/b/stayhere-a8896.appspot.com/o/images%2Fbig%20bungalow.jpg?alt=media&token=c5acfb52-c5ee-4b1a-b3b3-a3a0c493011f",
           home_type: "Landed",
           total_occupancy: 8,
           total_bedrooms: 4,
@@ -26,6 +28,8 @@ module.exports = {
         },
         {
           home_name: "Small studio",
+          image_url:
+            "https://firebasestorage.googleapis.com/v0/b/stayhere-a8896.appspot.com/o/images%2Fsmall%20studio.jpg?alt=media&token=1702f7d7-ff06-40aa-96e0-a75e2d347ec2",
           home_type: "studio",
           total_occupancy: 2,
           total_bedrooms: 1,
@@ -43,6 +47,8 @@ module.exports = {
         },
         {
           home_name: "Convenient HDB",
+          image_url:
+            "https://firebasestorage.googleapis.com/v0/b/stayhere-a8896.appspot.com/o/images%2Fhdb.jpg?alt=media&token=ba42a762-7df8-4c17-b025-b8b7b52bc322",
           home_type: "HDB",
           total_occupancy: 6,
           total_bedrooms: 3,

@@ -6,12 +6,12 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("properties", {
       id: {
+        primaryKey: true,
         allowNull: false,
         autoIncrement: true,
         type: Sequelize.INTEGER,
       },
       home_name: {
-        primaryKey: true,
         type: Sequelize.STRING,
       },
       image_url: {
