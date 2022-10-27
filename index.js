@@ -2,6 +2,7 @@ const cors = require("cors");
 const express = require("express");
 require("dotenv").config();
 
+const auth = require("./auth");
 // importing Routers
 const ReservationsRouter = require("./routers/reservationsRouter");
 const PropertiesRouter = require("./routers/propertiesRouter");
@@ -24,7 +25,8 @@ const propertiesController = new PropertiesController(property);
 
 // initializing Routers
 const reservationsRouter = new ReservationsRouter(
-  reservationsController
+  reservationsController,
+  auth
 ).routes();
 const propertiesRouter = new PropertiesRouter(propertiesController).routes();
 
