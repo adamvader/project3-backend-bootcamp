@@ -11,9 +11,17 @@ module.exports = {
       },
       customer_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
       properties_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "property",
+          key: "id",
+        },
       },
       owner_id: {
         type: Sequelize.INTEGER,
