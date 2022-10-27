@@ -15,6 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     {
       customer_id: DataTypes.INTEGER,
       properties_id: DataTypes.INTEGER,
+      owner_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
+      },
       start_date: DataTypes.DATEONLY,
       end_date: DataTypes.DATEONLY,
     },

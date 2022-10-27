@@ -54,7 +54,7 @@ module.exports = {
           has_aircon: true,
           has_internet: true,
           price: 5000000,
-          owner_id: 2,
+          owner_id: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

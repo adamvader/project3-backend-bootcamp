@@ -16,16 +16,13 @@ const db = require("./db/models/index");
 const { property, reservation, user } = db;
 
 // initializing Controllers -> note the lowercase for the first word
-const reservationsController = new ReservationsController(
-  reservation,
-  property,
-  user
-);
+const reservationsController = new ReservationsController(reservation, user);
 const propertiesController = new PropertiesController(property);
 
 // initializing Routers
 const reservationRouter = new ReservationsRouter(
-  reservationsController
+  reservationsController,
+  auth
 ).routes();
 const propertyRouter = new PropertiesRouter(propertiesController).routes();
 

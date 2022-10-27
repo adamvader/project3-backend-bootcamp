@@ -15,6 +15,13 @@ module.exports = {
       properties_id: {
         type: Sequelize.INTEGER,
       },
+      owner_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
+      },
       start_date: {
         type: Sequelize.DATEONLY,
       },
