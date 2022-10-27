@@ -8,10 +8,10 @@ module.exports = {
       id: {
         allowNull: false,
         autoIncrement: true,
+        primaryKey: true,
         type: Sequelize.INTEGER,
       },
       home_name: {
-        primaryKey: true,
         type: Sequelize.STRING,
       },
       image_url: {
