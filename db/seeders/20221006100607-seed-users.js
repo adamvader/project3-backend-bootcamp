@@ -8,7 +8,7 @@ module.exports = {
       [
         {
           name: "Adam",
-          email: "adam@mail.com",
+          email: "test1@mail.com",
           password: "password",
           phone_number: "6598182227",
           createdAt: new Date(),
@@ -16,7 +16,7 @@ module.exports = {
         },
         {
           name: "Amy",
-          email: "amy@mail.com",
+          email: "amytest1@mail.com",
           password: "password",
           phone_number: "81364260780",
           createdAt: new Date(),
