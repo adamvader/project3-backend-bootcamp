@@ -11,11 +11,11 @@ class ReservationsController extends BaseController {
   // Retrieve all reservations
   async getAll(req, res) {
     try {
-      // const [owner] = await this.userModel.findOrCreate({
-      //   where: {
-      //     email: req.query.ownerEmail,
-      //   },
-      // });
+      const [owner] = await this.userModel.findOrCreate({
+        where: {
+          email: req.query.ownerEmail,
+        },
+      });
       const reservations = await this.model.findAll({
         include: [
           { model: this.userModel, as: "customer", attributes: ["name"] },
@@ -26,8 +26,7 @@ class ReservationsController extends BaseController {
           },
         ],
         where: {
-          // owner_id: owner.id,
-          owner_id: 2,
+          owner_id: owner.id,
         },
       });
       return res.json(reservations);
@@ -46,10 +45,10 @@ class ReservationsController extends BaseController {
       //   },
       // });
       const output = await this.model.findAll({
-        where: {
-          // owner_id: owner.id,
-          owner_id: 2,
-        },
+        // where: {
+        //   // owner_id: owner.id,
+        //   owner_id: 2,
+        // },
       });
       return res.json(output);
     } catch (err) {
