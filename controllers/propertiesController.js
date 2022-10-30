@@ -3,8 +3,9 @@
 const BaseController = require("./baseController");
 
 class PropertiesController extends BaseController {
-  constructor(model) {
+  constructor(model, userModel) {
     super(model);
+    this.userModel = userModel;
   }
 
   /** if a method in this extended class AND the base class has the same name, the one in the extended class will run over the base method */
@@ -23,11 +24,18 @@ class PropertiesController extends BaseController {
       has_aircon,
       has_internet,
       price,
-      owner_id,
+      ownerEmail,
     } = req.body;
     try {
       // TODO: Get seller email from auth, query Users table for seller ID
-
+      const [owner] = await this.userModel.findOrCreate({
+        where: {
+          email: req.body.ownerEmail,
+        },
+        defaults: {
+          name: ownerEmail,
+        },
+      });
       // Create new listing
       const newListing = await this.model.create({
         home_name: home_name,
@@ -43,7 +51,7 @@ class PropertiesController extends BaseController {
         has_aircon: has_aircon,
         has_internet: has_internet,
         price: price,
-        owner_id: owner_id, 
+        owner_id: owner.id,
       });
 
       // Respond with new listing
@@ -61,6 +69,24 @@ class PropertiesController extends BaseController {
         // include: this.categoryModel,
       });
       return res.json(property);
+    } catch (err) {
+      return res.status(400).json({ error: true, msg: err });
+    }
+  }
+
+  async getAll(req, res) {
+    try {
+      const [owner] = await this.userModel.findOrCreate({
+        where: {
+          email: req.query.ownerEmail,
+        },
+      });
+      const output = await this.model.findAll({
+        where: {
+          owner_id: owner.id,
+        },
+      });
+      return res.json(output);
     } catch (err) {
       return res.status(400).json({ error: true, msg: err });
     }

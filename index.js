@@ -21,14 +21,17 @@ const reservationsController = new ReservationsController(
   user,
   property
 );
-const propertiesController = new PropertiesController(property);
+const propertiesController = new PropertiesController(property, user);
 
 // initializing Routers
 const reservationsRouter = new ReservationsRouter(
   reservationsController,
   auth
 ).routes();
-const propertiesRouter = new PropertiesRouter(propertiesController).routes();
+const propertiesRouter = new PropertiesRouter(
+  propertiesController,
+  auth
+).routes();
 
 const PORT = process.env.PORT;
 const app = express();
