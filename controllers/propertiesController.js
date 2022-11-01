@@ -91,6 +91,18 @@ class PropertiesController extends BaseController {
       return res.status(400).json({ error: true, msg: err });
     }
   }
+
+  async deleteOne(req, res) {
+    const id = req.params.id
+    try {
+      const deleteProperty = await this.model.destroy({
+        where: { id: id },
+      });
+      return res.json(deleteProperty);
+    } catch (err) {
+      return res.status(400).json({ error: true, msg: err });
+    }
+  }
 }
 
 module.exports = PropertiesController;
