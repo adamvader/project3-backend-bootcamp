@@ -61,7 +61,7 @@ class PropertiesController extends BaseController {
     }
   }
 
-  // Retrieve specific sighting
+  
   async getOne(req, res) {
     const { propertyName } = req.params;
     try {
