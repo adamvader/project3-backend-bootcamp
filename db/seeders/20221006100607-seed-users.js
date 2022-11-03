@@ -30,6 +30,14 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "Takuya Kimura",
+          email: "Takuyakim@mail.com",
+          password: "password",
+          phone_number: "08081238222",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
