@@ -143,7 +143,7 @@ module.exports = {
           has_aircon: true,
           has_internet: true,
           price: 50000,
-          owner_id: 4,
+          owner_id: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

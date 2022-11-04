@@ -33,6 +33,24 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          customer_id: 4,
+          properties_id: 6,
+          owner_id: 2,
+          start_date: new Date(2022, 12, 1),
+          end_date: new Date(2022, 12, 5),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          customer_id: 3,
+          properties_id: 6,
+          owner_id: 2,
+          start_date: new Date(2022, 12, 10),
+          end_date: new Date(2022, 12, 15),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
