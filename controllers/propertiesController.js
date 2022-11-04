@@ -61,12 +61,12 @@ class PropertiesController extends BaseController {
     }
   }
 
-  // Retrieve specific sighting
+  
   async getOne(req, res) {
     const { propertyName } = req.params;
     try {
       const property = await this.model.findByPk(propertyName, {
-        // include: this.categoryModel,
+        include: [{ model: this.userModel, as: "owner", attributes: ["name"] }],
       });
       return res.json(property);
     } catch (err) {
@@ -82,10 +82,30 @@ class PropertiesController extends BaseController {
         },
       });
       const output = await this.model.findAll({
+        
         where: {
           owner_id: owner.id,
         },
       });
+      // const [owner] = await this.userModel.findOrCreate({
+      //   where: {
+      //     email: req.query.ownerEmail,
+      //   },
+      // });
+      // const reservations = await this.model.findAll({
+      //   include: [
+      //     { model: this.userModel, as: "customer", attributes: ["name"] },
+      //     {
+      //       model: this.propertyModel,
+      //       as: "properties",
+      //       attributes: ["home_name"],
+      //     },
+      //   ],
+      //   where: {
+      //     owner_id: owner.id,
+      //   },
+      // });
+      
       return res.json(output);
     } catch (err) {
       return res.status(400).json({ error: true, msg: err });

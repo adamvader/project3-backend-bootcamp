@@ -45,6 +45,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       has_internet: {
+
         type: Sequelize.BOOLEAN,
       },
       price: {
