@@ -8,15 +8,16 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
   },
-production: {
+  
+  production: {
     use_env_variable: "DATABASE_URL",
     dialect: "postgres",
-    protocol: 'postgres',
+    protocol: "postgres",
     dialectOptions: {
       ssl: {
         require: true,
         rejectUnauthorized: false,
-      }
-    }
-  }
+      },
+    },
+  },
 };
