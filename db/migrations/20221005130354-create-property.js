@@ -45,7 +45,6 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       has_internet: {
-
         type: Sequelize.BOOLEAN,
       },
       price: {
@@ -53,6 +52,10 @@ module.exports = {
       },
       owner_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,

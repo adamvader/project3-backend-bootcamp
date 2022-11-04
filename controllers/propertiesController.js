@@ -66,7 +66,9 @@ class PropertiesController extends BaseController {
     const { propertyName } = req.params;
     try {
       const property = await this.model.findByPk(propertyName, {
-        include: [{ model: this.userModel, as: "owner", attributes: ["name"] }],
+        include: [{ model: this.userModel, 
+          // as: "owner", 
+          attributes: ["name"] }],
       });
       return res.json(property);
     } catch (err) {
@@ -111,7 +113,22 @@ class PropertiesController extends BaseController {
       return res.status(400).json({ error: true, msg: err });
     }
   }
-
+  async getAllProps(req, res) {
+    console.log(`hello`);
+    try {
+      const output = await this.model.findAll({
+        include: [
+          {
+            model: this.userModel,
+            // as: "owner",
+            attributes: ["name", "email"],
+          },
+        ],
+      });
+      return res.json(output);
+    } catch (err) {
+      return res.status(400).json({ error: true, msg: err });
+    }}
   async deleteOne(req, res) {
     const id = req.params.id;
     try {

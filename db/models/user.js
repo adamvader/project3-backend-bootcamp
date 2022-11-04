@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         as: "customer",
         foreignKey: "customer_id",
       });
-      this.hasMany(models.property, { as: "owner", foreignKey: "owner_id" });
+      this.hasMany(models.property, {
+        // as: "owner",
+        foreignKey: "owner_id",
+      });
     }
   }
   user.init(
